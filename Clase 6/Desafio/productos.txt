@@ -6,27 +6,9 @@
     "id": 1
   },
   {
-    "title": "Claculardora",
-    "price": 113.45,
-    "thumbnail": "https://commons.wikimedia.org/wiki/File:Casio_fx-85WA_20050529.jpg",
-    "id": 2
-  },
-  {
-    "title": "Globo Terraqueo",
-    "price": 183.45,
-    "thumbnail": "https://www.mosca.com.uy/media/catalog/product/4/8/4825200.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=700&width=700&canvas=700:700&dpr=1.5%201.5x",
-    "id": 3
-  },
-  {
-    "title": "Tijera",
-    "price": 232.45,
-    "thumbnail": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fassets.tramontina.com.br%2Fupload%2Ftramon%2Fimagens%2FCUT%2F25925167PNM001G.png&imgrefurl=https%3A%2F%2Fwww.tramontina.com.br%2Fes%2Fp%2F25925167-81-tijera-para-costura-7&tbnid=M33L0O5RzOzbEM&vet=12ahUKEwj57sLmofT5AhUorpUCHXqYBgYQMygBegUIARDuAQ..i&docid=8jgBJ3faqhcv0M&w=1200&h=1200&q=tijera&ved=2ahUKEwj57sLmofT5AhUorpUCHXqYBgYQMygBegUIARDuAQ",
-    "id": 4
-  },
-  {
     "title": "Lapiz",
     "price": 98.45,
-    "thumbnail": "https://www.freepik.es/vector-gratis/diseno-lapiz-escribiendo_850418.htm#query=lapiz&position=0&from_view=keyword",
+    "thumbnail": "thumbnail",
     "id": 5
   }
 ]
