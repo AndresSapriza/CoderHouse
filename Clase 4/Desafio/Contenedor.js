@@ -32,6 +32,17 @@ export class Contenedor{
         }
     }
 
+    async getRandom(){
+        try{
+            let objects = await this.getAll();
+            let randomIndex = Math.floor(Math.random()*objects.length)
+            let object = objects[randomIndex];
+            return object;
+        }catch(err){
+            console.log(err);
+        }
+    }
+
     async getAll(){
         let objects = [];
         try{
