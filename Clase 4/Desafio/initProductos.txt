@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Escuadra",
+    "price": 213.45,
+    "thumbnail": "https://commons.wikimedia.org/wiki/File:Squadra_45.jpg"
+  },
+  {
+    "title": "Lapiz",
+    "price": 98.45,
+    "thumbnail": "thumbnail"
+  }
+]

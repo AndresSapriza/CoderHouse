@@ -50,10 +50,10 @@ export class Contenedor{
                 let contents = await fs.promises.readFile(this.fileName,'utf-8');
                 objects = JSON.parse(contents);
             }
-            return objects;
         }catch(err){
             console.log(err);
         }
+        return objects;
     }
 
     async deleteById(id){
