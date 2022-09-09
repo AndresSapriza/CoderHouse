@@ -23,7 +23,7 @@ app.get('/productoRandom', (req,res) => {
     contenedor.getRandom().then((object) => {
         res.send(JSON.stringify(object,null,2));
     }).catch((err) => {
-        res.send('Ups!, something happens!!');
+        res.status(500).send('Ups!, something happens!!');
     })
 })
 
