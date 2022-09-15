@@ -1,0 +1,7 @@
+
+<h3 class="form-product-heading">What products we have here!</h3>
+<% if(products.length){ %> 
+  <%- include('./tableData') %> 
+<% } else { %>
+  <h1>Sorry!, We can't find any product to show you.</h1>
+<% } %> 

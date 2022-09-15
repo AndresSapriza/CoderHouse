@@ -4,7 +4,7 @@ import productsApi from '../api/productsApi.js';
 const productRouter = express.Router();
 
 productRouter.get('/', (req, res) => {
-    let products = productsApi.getAll()
+    let products = productsApi.getAll();
 	res.json(products);
 });
 
