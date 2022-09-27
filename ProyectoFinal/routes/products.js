@@ -19,4 +19,4 @@ productRouter.delete('/:id', (req, res) => {
     res.status(404).send('Sorry, we are working on it!');
 });
 
-export default productRouter;
+module.exports = productRouter;
