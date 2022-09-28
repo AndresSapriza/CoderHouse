@@ -24,4 +24,4 @@ cartRouter.delete('/:id/productos/:id_prod', (req, res) => {
 });
 
 
-export default cartRouter;
+module.exports = cartRouter;
