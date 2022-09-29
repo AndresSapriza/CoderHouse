@@ -5,8 +5,14 @@ class productManager{
         this.dataProducts = new dataManager("products.json");
     }
 
-    async getById(id){
-        return await this.dataProducts.getById(id);
+    async get(id){
+        try{
+            if (id) return await this.dataProducts.getById(id);
+            
+            return await this.dataProducts.getAll();            
+        } catch(err) {
+            console.log(err);
+        }
     }
 
     async add(product){

@@ -4,9 +4,9 @@ const productApi = require('./../controller/productManager');
 const productRouter = express.Router();
 
 
-productRouter.get('/:id', (req, res) => {
+productRouter.get('/:id?', (req, res) => {
 
-    productApi.getById(req.params.id).then((product) => {
+    productApi.get(req.params.id).then((product) => {
         if(product){
             res.status(200).json(product);
         } else {
