@@ -8,7 +8,7 @@ productRouter.get('/:id', (req, res) => {
 
     productApi.getById(req.params.id).then((product) => {
         if(product){
-            res.json(product);
+            res.status(200).json(product);
         } else {
             res.status(404).send(`Sorry, product doesn't exist!`);
         }
@@ -21,7 +21,7 @@ productRouter.post('/', (req, res) => {
     
     productApi.add(req.body).then((response) => {
             if (response.OK){
-                res.send(`{"id":${response.id}}`);
+                res.status(200).send(`{"id":${response.id}}`);
             } else {
                 res.status(400).send(response.message);
             }
@@ -32,11 +32,19 @@ productRouter.post('/', (req, res) => {
 });
 
 productRouter.put('/:id', (req, res) => {
-    res.status(404).send('Sorry, we are working on it!');    
+    productApi.update(req.params.id,req.body).then(() => {
+        res.status(200).send(`Product updated!`);
+    }).catch((err) => {
+        res.status(500).send('Ups!, something happens!!');
+    });  
 });
 
 productRouter.delete('/:id', (req, res) => {
-    res.status(404).send('Sorry, we are working on it!');
+    productApi.delete(req.params.id).then(() => {
+        res.status(200).send(`Product deleted!`);
+    }).catch((err) => {
+        res.status(500).send('Ups!, something happens!!');
+    });
 });
 
 module.exports = productRouter;

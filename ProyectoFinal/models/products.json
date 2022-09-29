@@ -1,12 +1,12 @@
 [
   {
-    "name": "pera",
-    "description": "This is a pera",
-    "code": "p32",
+    "id": "1",
+    "name": "naranja",
+    "description": "This is a naranja",
+    "code": "n32",
     "photo": "photo",
     "price": 90,
-    "stock": 4,
-    "id": 1
+    "stock": 4
   },
   {
     "name": "manzana",
@@ -27,12 +27,12 @@
     "id": 3
   },
   {
-    "name": "naranja",
-    "description": "This is a naranja",
-    "code": "n32",
+    "id": 5,
+    "name": "ciruela",
+    "description": "This is a ciruela",
+    "code": "c309",
     "photo": "photo",
-    "price": 90,
-    "stock": 4,
-    "id": 4
+    "price": 92,
+    "stock": 9
   }
 ]

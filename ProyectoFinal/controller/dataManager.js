@@ -14,9 +14,21 @@ module.exports = class DataManager{
             let objects = await this.getAll();
             let lastId = this.getLastId(objects);
             lastId += 1;
-            objects = [...objects,{...object,id:lastId}];
+            objects = [...objects,{id:lastId,timeStamp:Date.now(),...object}];
             await fs.promises.writeFile(this.fileName,JSON.stringify(objects,null,2));
             return lastId;
+        }catch(err){
+            console.log(err);
+        }
+    }
+
+    async update(id,updObject){
+        try{
+            let objects = await this.getAll();
+            objects = objects.map(obj => 
+                obj.id == id ? {id, ...updObject} : obj
+            );
+            await fs.promises.writeFile(this.fileName,JSON.stringify(objects,null,2));
         }catch(err){
             console.log(err);
         }

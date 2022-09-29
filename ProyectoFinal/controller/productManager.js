@@ -15,7 +15,6 @@ class productManager{
             try{
                 let id = await this.dataProducts.save(product);
                 response = {...response, id:id};
-                return response;
             }catch(err){
                 console.log("this is error:"+err);
                 response.OK = false;
@@ -26,11 +25,30 @@ class productManager{
         
     }
 
-    // update(id,updProduct){
-    // }
+    async update(id,updProduct){
+        let response = {};
+        try{
+            let product = await this.dataProducts.getById(id);
+            if(product){
+                response = this.isValid(updProduct);
+                if (response.OK){
+                    await this.dataProducts.update(id,updProduct);
+                }
+            } else {
+                response.OK = false;
+                response.message = `Sorry, product doesn't exist!`;
+            }
+        } catch(err) {
+            console.log("this is error:"+err);
+            response.OK = false;
+            response.message = `Oops, something happen!`;
+        }
+        return response;
+    }
 
-    // delete(id){
-    // }
+    async delete(id){
+        return await this.dataProducts.deleteById(id);
+    }
 
     isValid(product){
         if(!product.name) return {"OK":false, "message":"name is required!"};
