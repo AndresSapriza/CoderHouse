@@ -14,6 +14,9 @@ app.use(express.urlencoded({extended: true}));
 
 app.use('/api/products', productRouter);
 app.use('/api/cart', cartRouter);
+app.use((req, res) => {
+    res.status(404).send({error: -2, descripcion: `route ${req.baseUrl}${req.url} method ${req.method} doesn't exist!`});
+});
 
 
 app.listen(port, () => {
