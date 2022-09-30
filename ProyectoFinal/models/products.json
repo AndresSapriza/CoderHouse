@@ -9,15 +9,6 @@
     "stock": 4
   },
   {
-    "name": "manzana",
-    "description": "This is a manzana",
-    "code": "m32",
-    "photo": "photo",
-    "price": 90,
-    "stock": 4,
-    "id": 2
-  },
-  {
     "name": "naranja",
     "description": "This is a naranja",
     "code": "n32",

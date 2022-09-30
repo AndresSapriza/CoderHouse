@@ -18,33 +18,44 @@ productRouter.get('/:id?', (req, res) => {
 });
 
 productRouter.post('/', (req, res) => {
-    
-    productApi.add(req.body).then((response) => {
-            if (response.OK){
-                res.status(200).send(`{"id":${response.id}}`);
-            } else {
-                res.status(400).send(response.message);
-            }
-        }).catch((err) => {
-            res.status(500).send('Ups!, something happens!!');
-        })
+    if(process.env.IS_ADMINISTRATOR == "true"){
+        productApi.add(req.body).then((response) => {
+                if (response.OK){
+                    res.status(200).send(`{"id":${response.id}}`);
+                } else {
+                    res.status(400).send(response.message);
+                }
+            }).catch((err) => {
+                res.status(500).send('Ups!, something happens!!');
+            });
+    } else {
+        res.status(401).send('Unauthorized access.');
+    }
     
 });
 
 productRouter.put('/:id', (req, res) => {
-    productApi.update(req.params.id,req.body).then(() => {
-        res.status(200).send(`Product updated!`);
-    }).catch((err) => {
-        res.status(500).send('Ups!, something happens!!');
-    });  
+    if(process.env.IS_ADMINISTRATOR == "true"){
+        productApi.update(req.params.id,req.body).then(() => {
+            res.status(200).send(`Product updated!`);
+        }).catch((err) => {
+            res.status(500).send('Ups!, something happens!!');
+        });
+    } else {
+        res.status(401).send('Unauthorized access.');
+    }
 });
 
 productRouter.delete('/:id', (req, res) => {
-    productApi.delete(req.params.id).then(() => {
-        res.status(200).send(`Product deleted!`);
-    }).catch((err) => {
-        res.status(500).send('Ups!, something happens!!');
-    });
+    if(process.env.IS_ADMINISTRATOR == "true"){
+        productApi.delete(req.params.id).then(() => {
+            res.status(200).send(`Product deleted!`);
+        }).catch((err) => {
+            res.status(500).send('Ups!, something happens!!');
+        });
+    } else {
+        res.status(401).send('Unauthorized access.');
+    }
 });
 
 module.exports = productRouter;
