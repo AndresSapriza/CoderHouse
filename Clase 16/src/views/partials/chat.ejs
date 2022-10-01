@@ -1,0 +1,20 @@
+<form name="User">
+    <div class="container">
+        <div class="row">
+        <div class="col">
+            <div class="chat-message clearfix">
+                <div class="input-group mb-0">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                    <input id="userName" type="email" class="form-control" placeholder="Enter your email here...">
+                </div>
+            </div> 
+        </div>
+        <div class="col">
+            <button id="connect" type="Submit" class="btn btn-lg btn-primary btn-block" name="connect" value="Connect">Connect</button>
+        </div>
+        </div>
+    </div>
+</form>
+<div id="chatBox"><%- include('./chatHistory') %></div>
