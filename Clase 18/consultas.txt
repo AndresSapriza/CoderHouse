@@ -1,0 +1,95 @@
+use ecommerce
+db.createCollection("products")
+db.createCollection("messages")
+db.products.insert([
+...   {
+...     "name": "naranja",
+...     "description": "This is a naranja",
+...     "code": "n32",
+...     "photo": "photo",
+...     "price": 1900,
+...     "stock": 4
+...   },
+...   {
+...     "name": "ciruela",
+...     "description": "This is a ciruela",
+...     "code": "c309",
+...     "photo": "photo",
+...     "price": 902,
+...     "stock": 9
+...   },
+...   {
+...     "name": "manzana",
+...     "description": "This is a manzana",
+...     "code": "m2",
+...     "photo": "photo",
+...     "price": 490,
+...     "stock": 4
+...   },
+...   {
+...     "name": "pera",
+...     "description": "This is a pera",
+...     "code": "p309",
+...     "photo": "photo",
+...     "price": 592,
+...     "stock": 9
+...   },
+...   {
+...     "name": "banana",
+...     "description": "This is a banana",
+...     "code": "b309",
+...     "photo": "photo",
+...     "price": 110,
+...     "stock": 9
+...   }
+... ])
+db.messages.insert([
+...   {
+...     "user": "user1@gmail.com",
+...     "date": new Date("<2022-10-10T12:21:23>"),
+...     "message": "Buenas!"
+...   },
+...   {
+...     "user": "user1@gmail.com",
+...     "date": new Date("<2022-10-10T12:21:23>"),
+...     "message": "Como andas?"
+...   },
+...   {
+...     "user": "user2@gmail.com",
+...     "date": new Date("<2022-10-10T12:23:23>"),
+...     "message": "Hola! todo bien y vos?"
+...   },
+...   {
+...     "user": "user1@gmail.com",
+...     "date": new Date("<2022-10-10T12:31:23>"),
+...     "message": "bien bien"
+...   },
+...   {
+...     "user": "user1@gmail.com",
+...     "date": new Date("<2022-10-10T12:32:23>"),
+...     "me23age": "de bien bien"
+...   }
+... ])
+db.messages.find().pretty()
+db.products.find().pretty()
+db.products.estimatedDocumentCount()
+db.messages.estimatedDocumentCount()
+db.products.insertOne({"name":"kiwi","description":"This is a kiwi","code":"k344","photo":"photo","price":345,"stock":3})
+db.products.find({"price":{$lt:1000}}).pretty()
+db.products.find({$and: [{"price":{$gte:1000}},{"price":{$lte:3000}}]}).pretty()
+db.products.find({"price":{$gt:3000}}).pretty()
+db.products.find({},{"name":1}).skip(2).limit(1).sort({price:1})
+db.products.update({},{$set: {"stock":100}},{"multi":true})
+db.products.update({"price":{$gt:4000}},{$set: {"stock":0}},{"multi":true})
+db.products.deleteMany({"price":{$lt:1000}})
+db.createUser(
+  {
+    user: "pepe",
+    pwd: "asd456",
+    roles: [
+       { role: "read", db: "ecommerce" }
+    ]
+  }
+)
+
+

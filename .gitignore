@@ -3,3 +3,6 @@ node_modules
 
 #Environment variables
 .env
+
+#Config for FireBase connection
+serviceAccountKey.json
