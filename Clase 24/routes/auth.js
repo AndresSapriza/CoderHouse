@@ -21,7 +21,6 @@ authRouter.post('/',sessionChecker, (req, res) => {
 				.then((isMatch) => {
 					if (!isMatch) return res.status(400).send('Invalid credentials');
 					req.session.user = user;
-					// return res.status(200).json(`Logged succesfull! ${user}`);
                     res.redirect('/dashboard');
 				});
 		});
