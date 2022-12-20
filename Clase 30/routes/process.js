@@ -1,16 +1,24 @@
 import express from 'express';
-import {fork} from 'child_process';
 
 const processRouter = express.Router();
 // calcular randoms
 processRouter.get('/:cant?', (req, res) => {
-	const numAleatorio = fork('./scripts/numeroAleatorios');
-    if (!req.params.cant) req.params.cant = 100000000;
-    numAleatorio.send(req.params.cant);
-    numAleatorio.on("message", result => {
-        console.log(result);
-        res.send(result);
-    });
+    const cant = req.params.cant;
+    let randomsNum = {};
+    console.log(cant);
+    for(let i =1; i<=cant; i++){
+        let randomNum = between(1,1000);
+        if (!randomsNum[randomNum]) randomsNum[randomNum] = 0;
+        randomsNum[randomNum] += 1;
+    }
+    res.send(randomsNum);
+	
 });
+
+function between(min, max) {  
+    return Math.floor(
+      Math.random() * (max - min + 1) + min
+    )
+  }
 
 export default processRouter;

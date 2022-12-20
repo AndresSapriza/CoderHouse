@@ -1,0 +1,8 @@
+### Para Inicializar la aplicacion en puerto 8080 y el endpoint api/randoms en 8081 cluster nativo
+pm2 start app2.js -- 8080
+utilizar la configuracion nginx1.conf
+### Para inicializar pm2 modo cluster
+pm2 start app.js -i max 
+### Para balancear carga entre los puertos 8082 y 8085
+pm2 start ./proccess.json 
+utilizar la configuracion nginx2.conf

@@ -1,0 +1,33 @@
+{
+    "apps":[
+        {
+            "name": "Server Fork 1",
+            "script": "app.js",
+            "args": "8080"
+        },
+        {
+            "name": "Server Fork 2",
+            "script": "app.js",
+            "args": "8082",
+            "exec_mode": "cluster"
+        },
+        {
+            "name": "Server Fork 3",
+            "script": "app.js",
+            "args": "8083",
+            "exec_mode": "cluster"
+        },
+        {
+            "name": "Server Fork 4",
+            "script": "app.js",
+            "args": "8084",
+            "exec_mode": "cluster"
+        },
+        {
+            "name": "Server Fork 5",
+            "script": "app.js",
+            "args": "8085",
+            "exec_mode": "cluster"
+        }
+    ]
+}

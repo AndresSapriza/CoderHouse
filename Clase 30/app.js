@@ -14,6 +14,7 @@ import { initializePassport } from './middleware/passport.config.js';
 import passport from 'passport';
 
 const __filename = fileURLToPath(import.meta.url);
+
 console.log(process.argv);
 if (process.argv[2]) process.env.PORT = process.argv[2];
 process.env.dirname = path.dirname(__filename);
@@ -24,14 +25,15 @@ dotenv.config();
 
 const port = process.env.PORT || 8080;
 
+
 const mongoUri = process.env.MONGOURI || 'mongodb://localhost:27017';
     const uri = `${mongoUri}/${process.env.DBNAME}?retryWrites=true&w=majority`
     mongoose.connect(uri,{
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	})
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
     .then(() => console.log(" Mongoose is connected"))
-	.catch((err) => console.log(err));
+    .catch((err) => console.log(err));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -66,5 +68,7 @@ app.use((req, res) => {
 
 
 app.listen(port, () => {
-	console.log(`Listening on port ${port}`);
+    console.log(`Listening on port ${port}`);
 });
+
+    

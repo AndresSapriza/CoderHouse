@@ -1,6 +1,6 @@
 import express from 'express';
 import {sessionChecker, sessionCheckerStay} from "../middleware/auth.js";
-import dotenv from 'dotenv';
+import core from 'os';
 
 
 const viewRouter = express.Router();
@@ -48,6 +48,7 @@ viewRouter.get('/info',sessionCheckerStay, (req, res) => {
     <li>Memoria: ${process.memoryUsage().rss}</li>
     <li>Path: ${process.argv[0]}</li>
     <li>Process id: ${process.pid}</li>
+    <li>'Quantity of cpus': ${core.cpus().length}</li>
     <li>Proyecto: ${process.argv[1]}</li>
  </ul>`;
     res.send(html);
