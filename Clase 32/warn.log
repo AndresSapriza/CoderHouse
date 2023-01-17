@@ -1,0 +1,5 @@
+[2023-01-16T21:47:41.752] [ERROR] DEV - password incorrect for following user andres 
+[2023-01-17T12:02:39.858] [WARN] DEV - {
+  error: -2,
+  descripcion: "route /favicon.ico method GET doesn't exist!"
+}

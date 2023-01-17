@@ -1,0 +1,8 @@
+Los logs de errores se usaron en los endpoints que estan relacionado con la autenticacion, como password incorrecto o usuario no existe.
+
+Al llamar el endpoint /info original donde el html devueve solo una vez la informacion. No se registra variaciones usando o no 'compression'.
+En el caso de devolver concatenado el html 100 veces la informacion, si se ve la siguiente diferencia usando 'compression': (con:1.1KB), (sin:37.2KB)
+Tambien depende donde se configure el middleware 'compression' se puede encontrar la siguiente diferencia: (desde app.use:743B), (desde endpoint info:1.1KB)
+
+El archivo result_console es el resultado de la prueba de estress usando en el endpoint /info, console.log con el html que devuelve al cliente.
+El archivo result_no_console idem pero sin utilizar console.log.
