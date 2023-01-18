@@ -6,3 +6,6 @@ Tambien depende donde se configure el middleware 'compression' se puede encontra
 
 El archivo result_console es el resultado de la prueba de estress usando en el endpoint /info, console.log con el html que devuelve al cliente.
 El archivo result_no_console idem pero sin utilizar console.log.
+
+Como conclusion se ve que la funcionalidad console.log no es algo despreciable, ya que duplica el request_rate cuando no se utiliza.
+Por lo que se recomendaria no utilizarlo en produccion ademas de que no es una buena practica. 
