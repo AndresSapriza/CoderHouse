@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import logger from '../logger/logger.js';
 
 export const signupMail = async (req, res) => {
     
@@ -18,9 +19,9 @@ export const signupMail = async (req, res) => {
 
     transporter.sendMail(message)
         .then(info => {
-            console.log(`message ${message}`);
+            logger.info(`message ${message}`);
         })
-        .catch(err => console.log(`err ${err}`));
+        .catch(err => logger.error(`err ${err}`));
    
 }
 
@@ -42,8 +43,8 @@ export const shoppingMail = async (products, userName) => {
 
     transporter.sendMail(message)
         .then(info => {
-            console.log(`message ${message}`);
+            logger.info(`message ${message}`);
         })
-        .catch(err => console.log(`err ${err}`));
+        .catch(err => logger.error(`err ${err}`));
    
 }

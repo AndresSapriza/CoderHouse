@@ -1,5 +1,5 @@
 import twilio from "twilio";
-import logger from '../logger/logger.js'
+import logger from '../logger/logger.js';
 
 export const shoppingSMS = async (userPhone) => {
     const twilioClient = twilio(process.env.ACCOUNTSID,process.env.AUTHTOKEN);
