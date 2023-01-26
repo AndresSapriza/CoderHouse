@@ -1,0 +1,8 @@
+[2023-01-26T09:38:44.933] [ERROR] DEV - register: TypeError: Cannot read properties of undefined (reading 'name')
+[2023-01-26T09:40:27.000] [ERROR] DEV - register: TypeError: image.mv is not a function
+[2023-01-26T09:45:09.956] [ERROR] DEV - register: TypeError: Cannot destructure property 'image' of 'files' as it is undefined.
+[2023-01-26T09:46:58.002] [ERROR] DEV - register: TypeError: Cannot read properties of undefined (reading 'name')
+[2023-01-26T09:48:03.960] [ERROR] DEV - register: ReferenceError: image is not defined
+[2023-01-26T10:08:14.961] [ERROR] DEV - register: Error: ENOENT: no such file or directory, open 'C:\Users\andres\Desktop\Andres\Programacion\NodeJs\CoderHouse\public\avatars\Screenshot_20230124_022004.png'
+[2023-01-26T10:12:42.398] [ERROR] DEV - register: Error: ENOENT: no such file or directory, open 'C:\Users\andres\Desktop\Andres\Programacion\NodeJs\CoderHouse\avatars\Screenshot_20230124_022004.png'
+[2023-01-26T10:15:10.928] [ERROR] DEV - register: Error: ENOENT: no such file or directory, open 'C:\Users\andres\Desktop\Andres\Programacion\NodeJs\CoderHouse\ProyectoFinal3\public\public\avatars\Screenshot_20230124_022004.png'

@@ -3,6 +3,7 @@ import local from 'passport-local';
 import User from '../models/userModel.js';
 import bycrypt from 'bcryptjs';
 import logger from '../logger/logger.js'
+import { avatarUpload } from '../utils/fileUpload.js';
 
 const LocalStrategy = local.Strategy;
 
@@ -15,25 +16,31 @@ export const initializePassport = () => {
                 try {
                     let user = await User.findOne({ email: email });
                     if (user) return done(null, false);
-                    bycrypt.genSalt(10, (err, salt) => {
-                        bycrypt.hash(password, salt, (err, hash) => {
-                            if (err) throw err;
-                            User.create({
-                                name: req.body.name,
-                                address: req.body.address,
-                                age: req.body.age,
-                                phone: req.body.phone,
-                                avatar: req.body.avatar,
-                                email,
-                                password:hash,
-                            }).then((newUser) => {
-                                return done(null, newUser);
-                            }).catch((err) => {
-                                logger.error(`register: ${err}`);
-                                done(err);
+                    let avatar = await avatarUpload(req.files);
+                    logger.info(avatar);
+                    if(!avatar){
+                        done('Not avatar.');
+                    }else{
+                        bycrypt.genSalt(10, (err, salt) => {
+                            bycrypt.hash(password, salt, (err, hash) => {
+                                if (err) throw err;
+                                User.create({
+                                    name: req.body.name,
+                                    address: req.body.address,
+                                    age: req.body.age,
+                                    phone: req.body.phone,
+                                    avatar: req.body.avatar,
+                                    email,
+                                    password:hash,
+                                }).then((newUser) => {
+                                    return done(null, newUser);
+                                }).catch((err) => {
+                                    logger.error(`register: ${err}`);
+                                    done(err);
+                                });
                             });
                         });
-                    });
+                    }
                 } catch(err) {
                     logger.error(`register: ${err}`);
                     done(err);

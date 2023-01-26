@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import passport from 'passport';
 import MongoStore from 'connect-mongo';
+import fileUpload from 'express-fileupload';
 import startDb from './db/mongodb.js';
 import { initializePassport } from './middleware/passport.config.js';
 import authRouter from './routes/auth.js';
@@ -28,7 +29,7 @@ const mongoUri = process.env.MONGOURI || 'mongodb://localhost:27017';
 const uri = `${mongoUri}/${process.env.DBNAME}?retryWrites=true&w=majority`;
 
 
-
+app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
