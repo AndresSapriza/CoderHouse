@@ -1,9 +1,10 @@
 import CustomError from "../../services/utils/customError.js";
 import UserModel from "../Schemas/userModel.js";
+import logger from "../../services/logger/logger.js";
 
 export default class UserDaoDb {
 
-    async getByEmail(email){
+    getByEmail = async(email) => {
         return await UserModel.find({email: email});
     }
 }

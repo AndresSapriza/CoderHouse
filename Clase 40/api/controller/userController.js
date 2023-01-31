@@ -1,6 +1,7 @@
 import UsersService from "../../services/models/userService.js";
 import UserDTO from "../../models/DTOs/userDTO.js";
-const userService = new UsersService()
+
+const userService = await UsersService.getInstance();
 
 class UserController {
 

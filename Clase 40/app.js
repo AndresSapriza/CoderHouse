@@ -1,5 +1,5 @@
 import express from 'express';
-import dotenv from 'dotenv';
+import config from './config/config.js';
 import path from 'path';
 import {fileURLToPath} from 'url';
 import cookieParser from "cookie-parser";
@@ -20,9 +20,10 @@ const __filename = fileURLToPath(import.meta.url);
 process.env.dirname = path.dirname(__filename);
 
 const app = express();
-dotenv.config();
+// dotenv.config();
 
 const port = process.env.PORT || 8080;
+
 
 startDb();
 const mongoUri = process.env.MONGOURI || 'mongodb://localhost:27017';

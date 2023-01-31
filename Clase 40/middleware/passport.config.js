@@ -4,7 +4,8 @@ import bycrypt from 'bcryptjs';
 import logger from '../services/logger/logger.js'
 import UsersService from "../services/models/userService.js";
 import { avatarUpload } from '../services/utils/fileUpload.js';
-const userService = new UsersService()
+
+const userService = UsersService.getInstance();
 const LocalStrategy = local.Strategy;
 
 export const initializePassport = () => {

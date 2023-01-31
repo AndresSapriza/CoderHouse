@@ -1,3 +1,5 @@
+import logger from '../../services/logger/logger.js';
+
 export default class UserFactory {
     static getPersistence = async () => {
         switch (process.env.PERSISTENCE) {
@@ -6,7 +8,7 @@ export default class UserFactory {
                 return new UsersDaoArray()
             case "MONGOOSE":
                 let { default: UserDaoDb } = await import('./userDaoDb.js')
-                return UserDaoDb()
+                return new UserDaoDb();
         }
     }
 }
