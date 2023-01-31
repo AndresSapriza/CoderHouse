@@ -1,5 +1,6 @@
 import UsersService from "../../services/models/userService.js";
 import UserDTO from "../../models/DTOs/userDTO.js";
+import logger from "../../services/logger/logger.js";
 
 const userService = await UsersService.getInstance();
 
@@ -11,7 +12,8 @@ class UserController {
             if(email){
                 const user = await userService.getByEmail(email);
                 if(!user) return res.status(404).json({message: `User doesn't exist.`});
-                let userDto = user => new UserDTO(user);
+               
+                let userDto =  new UserDTO(user);
                 return res.status(200).json(userDto);
             }else{
                 return res.status(400).json({message: `Email can't be empty.`});
